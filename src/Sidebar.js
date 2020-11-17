@@ -1,11 +1,22 @@
 import React from 'react';
 import './Sidebar.css'
+import Avatar from '@material-ui/core/Avatar';
+import DonutLargeIcon from '@material-ui/icons/DonutLarge';
+import MessageIcon from '@material-ui/icons/Message';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const Sidebar = () => {
     return (
         <div className='sidebar__container'>
             <div className='sidebar__header'>
-                Header
+                <div className='sidebar__avatar'>
+                    <Avatar alt="Remy Sharp" src="https://vingloo.com/wp-content/uploads/2018/08/2_2048x.jpg" />
+                </div>
+                <div className='sidebar__icons'>
+                    <div><DonutLargeIcon /></div>
+                    <div><MessageIcon /></div>
+                    <div><MoreVertIcon /></div>
+                </div>
             </div>
             <div className='sidebar__searchBar'>
                 Search

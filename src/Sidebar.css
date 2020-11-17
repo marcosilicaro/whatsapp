@@ -1,20 +1,33 @@
 .sidebar__container{
     display: grid;
     grid-template-columns: 100%;
-     
+    grid-template-rows: 80px 50px 60px auto;
 }
 
 .sidebar__header{
-    background-color: burlywood;
-    height: 15vh;
+    display:grid;
+    grid-template-columns: auto 39%;
+    background-color: gainsboro;
+    align-items: center;
+    min-height: max-content
 }
+
+.sidebar__avatar{
+    padding-left: 15px;
+}
+
+.sidebar__icons{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    color: grey;
+}
+
 
 .sidebar__searchBar{
     background-color: chartreuse;
-    height:8vh;
 }
 
 .sidebar__conversation{
     background-color: cornsilk;
-    height:10vh;
 }
