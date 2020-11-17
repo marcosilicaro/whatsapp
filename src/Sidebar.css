@@ -1,7 +1,7 @@
 .sidebar__container{
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 80px 50px 60px auto;
+    grid-template-rows: 80px 65px 60px auto;
 }
 
 .sidebar__header{
@@ -25,7 +25,26 @@
 
 
 .sidebar__searchBar{
-    background-color: chartreuse;
+    background-color: whitesmoke;
+    display: grid;
+    grid-template-columns: 15px auto;
+    align-items: center;
+}
+
+.sidebar__searchIcon{
+    position: relative;  
+    left: 30px;
+    z-index: 1  ;
+    color: grey;
+}
+
+.sidebar__input > input{
+    width: 95%;
+    height: 30px;
+    border:none;
+    outline-width: 0;
+    border-radius: 15px;
+    text-indent: 45px;
 }
 
 .sidebar__conversation{

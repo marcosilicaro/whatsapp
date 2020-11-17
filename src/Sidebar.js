@@ -4,6 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import MessageIcon from '@material-ui/icons/Message';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import SearchIcon from '@material-ui/icons/Search';
 
 const Sidebar = () => {
     return (
@@ -19,7 +20,12 @@ const Sidebar = () => {
                 </div>
             </div>
             <div className='sidebar__searchBar'>
-                Search
+                <div className='sidebar__searchIcon'>
+                    <SearchIcon />
+                </div>
+                <div className='sidebar__input'>
+                    <input />
+                </div>
             </div>
             <div className='sidebar__conversation'>
                 Conversation 1

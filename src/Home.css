@@ -5,6 +5,7 @@
 .home__container2{
     display: grid;
     justify-content: center;
+    margin-top:17px;
 }
 
 .home__container{
@@ -12,7 +13,6 @@
     grid-template-columns: 30% 70%;
     height: 95vh;
     width: 95vw;
-    margin-top:2.2vh;
     box-shadow: 1px 4px 20px -1px rgba(0,0,0,1)
 }
 
