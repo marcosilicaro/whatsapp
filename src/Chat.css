@@ -4,12 +4,49 @@
 
 .chat__container{
     display:grid;
-    grid-template-rows: 12% auto 10%;
+    grid-template-rows: 80px auto 10%;
     height:100%;
 }
 
 .chat__header{
-    background-color: grey;
+    background-color: gainsboro;
+    display:grid;
+    grid-template-columns: min-content max-content auto;
+    background-color: gainsboro;
+    align-items: center;
+    justify-items: right;
+}
+
+.chat__avatar{
+    padding-left:20px
+}
+
+.chat__info{
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 5px;
+    padding-left:20px;
+    
+}
+
+.chat__title{
+    font-size: 18px;
+    font-weight: 550;
+    color:black
+}
+
+.chat__lastSeen{
+    font-size: 13px;
+    color: grey
+}
+
+.chat__icons{
+    display:grid;
+    grid-template-columns: min-content min-content min-content;
+    column-gap: 20px;
+    justify-items: center;
+    color: grey;
+    padding-right:20px
 }
 
 .chat__display{

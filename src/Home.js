@@ -12,7 +12,9 @@ const Home = () => {
                     <Sidebar />
                 </div>
                 <div class='home__chat'>
-                    <Chat />
+                    <Chat
+                        name='Marco'
+                        img='https://media-exp1.licdn.com/dms/image/C4E03AQEVjbeI7RfsgA/profile-displayphoto-shrink_400_400/0?e=1611187200&v=beta&t=mZCODQ8mffbiw4vcLG2-zTqAWbhCvjwEBMS14DPs-nI' />
                 </div>
             </div>
         </div>

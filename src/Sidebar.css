@@ -6,9 +6,10 @@
 
 .sidebar__header{
     display:grid;
-    grid-template-columns: auto 39%;
+    grid-template-columns: min-content auto;
     background-color: gainsboro;
     align-items: center;
+    justify-items: right;
     min-height: max-content
 }
 
@@ -18,9 +19,11 @@
 
 .sidebar__icons{
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-items: center;
+    grid-template-columns: min-content min-content min-content;
+    justify-items: right;
     color: grey;
+    column-gap: 20px;
+    padding-right:20px;
 }
 
 
