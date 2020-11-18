@@ -1,0 +1,21 @@
+*{
+    margin:0px
+}
+
+.chat__container{
+    display:grid;
+    grid-template-rows: 12% auto 10%;
+    height:100%;
+}
+
+.chat__header{
+    background-color: grey;
+}
+
+.chat__display{
+    background-color: blue
+}
+
+.chat__input{
+    background-color: yellow
+}

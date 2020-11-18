@@ -1,6 +1,7 @@
 import React from 'react';
 import './Home.css'
 import Sidebar from './Sidebar'
+import Chat from './Chat'
 
 
 const Home = () => {
@@ -11,7 +12,7 @@ const Home = () => {
                     <Sidebar />
                 </div>
                 <div class='home__chat'>
-                    Chatt
+                    <Chat />
                 </div>
             </div>
         </div>
