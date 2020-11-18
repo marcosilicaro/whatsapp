@@ -1,0 +1,21 @@
+.conversation__container{
+    display: grid;
+    grid-template-columns: min-content auto;
+    align-items: center;
+    min-height: max-content;
+    column-gap: 15px;
+}
+
+.conversation__avatar{
+    padding-left: 15px;
+}
+
+.conversation__information{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: min-content min-content;
+}
+
+.conversation__title{
+    font-weight: bold;
+}

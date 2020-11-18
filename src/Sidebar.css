@@ -47,6 +47,10 @@
     text-indent: 45px;
 }
 
-.sidebar__conversation{
-    background-color: cornsilk;
+.sidebar__conversations{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content;
+    row-gap: 15px;
+    height:fit-content
 }
