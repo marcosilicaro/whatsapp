@@ -1,0 +1,26 @@
+.message__container{
+    display: grid;
+    
+    margin: 20px;
+}
+
+.message__user{
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.message__text{
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 40%;
+    width: fit-content;
+}
+
+.received {
+    justify-items: right;
+}
+
+.received .message__text{
+    background-color: honeydew;
+}

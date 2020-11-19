@@ -1,5 +1,8 @@
 import React from 'react';
 import './Chat.css'
+
+import Message from './Message'
+
 import Avatar from '@material-ui/core/Avatar';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import MessageIcon from '@material-ui/icons/Message';
@@ -30,7 +33,19 @@ const Chat = (props) => {
                 </div>
             </div>
             <div className='chat__display'>
-                Display
+                <Message text='Hols florchi' user='Marco' />
+                <Message text='Hola maco' user='Flor' status='received' />
+                <Message text='Te odio' user='Marco' />
+                <Message text='Te amo' user='Marco' />
+                <Message text='Te odio' user='Marco' />
+                <Message text='Te amo' user='Marco' />
+                <Message text='Te odio' user='Marco' />
+                <Message text='Te amo' user='Marco' />
+                <Message text='Te odio' user='Marco' />
+                <Message text='Te amo' user='Marco' />
+                <Message text='Te odio' user='Marco' />
+                <Message text='Te amo' user='Marco' />
+
             </div>
             <div className='chat__input'>
                 Input
