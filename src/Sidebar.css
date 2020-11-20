@@ -54,6 +54,6 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: max-content;
-    row-gap: 15px;
-    height:fit-content
+    height:fit-content;
 }
+

@@ -4,6 +4,12 @@
     align-items: center;
     min-height: max-content;
     column-gap: 15px;
+    padding:10px 0 10px 0
+}
+
+.conversation__container:hover{
+    background-color:gray;
+    color:white
 }
 
 .conversation__avatar{
