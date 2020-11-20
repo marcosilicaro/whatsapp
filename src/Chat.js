@@ -2,6 +2,7 @@ import React from 'react';
 import './Chat.css'
 
 import Message from './Message'
+import Input from './Input'
 
 import Avatar from '@material-ui/core/Avatar';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
@@ -47,9 +48,7 @@ const Chat = (props) => {
                 <Message text='Te amo' user='Marco' />
 
             </div>
-            <div className='chat__input'>
-                Input
-            </div>
+            <Input />
         </div>
     );
 };

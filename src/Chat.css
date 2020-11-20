@@ -12,7 +12,6 @@
     background-color: gainsboro;
     display:grid;
     grid-template-columns: min-content max-content auto;
-    background-color: gainsboro;
     align-items: center;
     justify-items: right;
 }

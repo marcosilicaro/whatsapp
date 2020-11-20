@@ -7,6 +7,9 @@
 .message__user{
     font-weight: bold;
     font-size: 13px;
+    margin-bottom: 3px;
+    margin-left: 10px;
+    margin-right: 10px
 }
 
 .message__text{

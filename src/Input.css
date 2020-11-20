@@ -1,0 +1,17 @@
+.input__container{
+    background-color: gainsboro;
+    display: grid;
+    grid-template-columns: max-content auto max-content;
+    justify-items: center;
+    align-items: center;
+    padding: 0 2% 0 2%
+}
+
+.input__container > input{
+    width: 95%;
+    height: 35px;
+    border:none;
+    outline-width: 0;
+    border-radius: 15px;
+    text-indent: 20px;
+}
