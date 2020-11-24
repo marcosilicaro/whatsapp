@@ -1,7 +1,6 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
 const usersSchema = mongoose.Schema({
-    userId: String,
     name: String,
     imgSrc: String
 })

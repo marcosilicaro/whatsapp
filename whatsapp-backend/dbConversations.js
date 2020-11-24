@@ -1,8 +1,7 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
 const conversationsSchema = mongoose.Schema({
-    users: Array,
-    conversationId: String
+    userIdsInvolved: Array
 })
 
 export default mongoose.model('conversation', conversationsSchema);

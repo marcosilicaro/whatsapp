@@ -1,7 +1,6 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 
 const messagesSchema = mongoose.Schema({
-    messageId: String,
     content: String,
     userId: String,
     conversationId: String,
