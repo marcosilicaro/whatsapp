@@ -23,9 +23,19 @@ app.use(express.json())
 // routes
 
 // GET prueba
-app.get('/messages/new', (req, res) => {
+app.get('/', (req, res) => {
     res.status(200).json({ 'name': 'marco pija' })
 })
+
+// GET messages by conversationId
+app.get('/messages/:conversationId', (req, res) => {
+    Messages.find({ "conversationId": req.params.conversationId },
+        (err, data) => {
+            res.status(200).json(data)
+        })
+})
+
+
 
 // POST conversation
 app.post('/conversations/new', (req, res) => {

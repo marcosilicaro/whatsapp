@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.css'
 import Sidebar from './Sidebar'
 import Chat from './Chat'
+import axios from './axios'
 
 
 const Home = () => {
+
     return (
         <div class='home__container2'>
             <div class='home__container'>
