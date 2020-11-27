@@ -1,9 +1,9 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 const usersSchema = mongoose.Schema({
     name: String,
     imgSrc: String
 })
 
-export default mongoose.model('user', usersSchema);
+module.exports = mongoose.model('user', usersSchema);
 

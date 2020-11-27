@@ -1,8 +1,9 @@
-import express from 'express'
-import mongoose from 'mongoose'
-import Conversations from './dbConversations.js'
-import Messages from './dbMessages.js'
-import Users from './dbUsers.js'
+const express = require('express')
+const mongoose = require('mongoose')
+const Conversations = require('./dbConversations.js')
+const Messages = require('./dbMessages.js')
+const Users = require('./dbUsers.js')
+const ObjectId = require('mongodb').ObjectID;
 
 // server config
 const app = express()
@@ -27,14 +28,33 @@ app.get('/', (req, res) => {
     res.status(200).json({ 'name': 'marco pija' })
 })
 
-// GET messages by conversationId
-app.get('/messages/:conversationId', (req, res) => {
-    Messages.find({ "conversationId": req.params.conversationId },
+// GET conversations by userIdsInvolved (para sidebar)
+app.get('/conversations/:userIdsInvolved', (req, res) => {
+    Conversations.find({ "userIdsInvolved": req.params.userIdsInvolved },
         (err, data) => {
+            if (err) throw err
             res.status(200).json(data)
         })
 })
 
+// GET users by _id 
+app.get('/users/:_id', (req, res) => {
+    Users.find({ "_id": ObjectId(`${req.params._id}`) },
+        (err, data) => {
+            if (err) throw err
+            res.status(200).json(data)
+        })
+})
+
+
+// GET messages by conversationId (para chat)
+app.get('/messages/:conversationId', (req, res) => {
+    Messages.find({ "conversationId": req.params.conversationId },
+        (err, data) => {
+            if (err) throw err
+            res.status(200).json(data)
+        })
+})
 
 
 // POST conversation
