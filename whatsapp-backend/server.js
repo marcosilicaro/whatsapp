@@ -18,8 +18,16 @@ mongoose.connect(connection_url, {
     useUnifiedTopology: true
 })
 
+
 // middleware
 app.use(express.json())
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader('Access-Control-Allow-Headers', '*')
+    next()
+})
+
 
 // routes
 
@@ -28,11 +36,11 @@ app.get('/', (req, res) => {
     res.status(200).json({ 'name': 'marco pija' })
 })
 
+
 // GET conversations by userIdsInvolved (para sidebar)
 app.get('/conversations/:userIdsInvolved', (req, res) => {
     Conversations.find({ "userIdsInvolved": req.params.userIdsInvolved },
         (err, data) => {
-            if (err) throw err
             res.status(200).json(data)
         })
 })
