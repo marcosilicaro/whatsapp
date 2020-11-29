@@ -10,25 +10,35 @@ import axios from './axios'
 
 const Sidebar = (props) => {
 
-    // conversations with props.mainUser
     const [conversationsWithUser, setconversationsWithUser] = useState([])
+    const [usersInvolvedInConversation, setusersInvolvedInConversation] = useState([])
+
     useEffect(() => {
+
+        // importa conversaciones en la cual esta involucrado el main user
         axios.get(`/conversations/${props.mainUser._id}`).then((response) => {
             setconversationsWithUser(response.data)
-            conversationsWithUser[0] ? console.log('main user conversations imported') : console.log('loading conversations..')
+            //conversationsWithUser[0] ? console.log(conversationsWithUser) : console.log('loading conversations..')
+            conversationsWithUser[0] ? console.log('main user conversations imported!') : console.log('loading main user conversations..')
         }
         )
-        if (conversationsWithUser[0]) {
-            axios.get(`/messages/${conversationsWithUser[0]._id}`).then((response) => {
-                const messages = response.data
-                messages ? console.log('conversation messages loaded') : console.log('loading messages..')
-            }
-            )
+
+        // importa a los usuarios con los que tiene una conversacion el main user
+        if (conversationsWithUser.length > 0) {
+            conversationsWithUser.map(conversation => {
+                conversation.userIdsInvolved.map(receivingUserId => {
+                    if (receivingUserId !== props.mainUser._id) {
+                        axios.get(`/users/${receivingUserId}`).then((response) => {
+                            setusersInvolvedInConversation(usersInvolvedInConversation => [...usersInvolvedInConversation, response.data])
+                        }
+                        )
+                    }
+                })
+            })
         }
+    }, conversationsWithUser.length > 0 ? [] : null)
 
-    }, conversationsWithUser[0] ? [] : null)
-
-    if (conversationsWithUser[0]) {
+    if (conversationsWithUser) {
         return (
             <div className='sidebar__container'>
                 <div className='sidebar__header'>
@@ -50,19 +60,14 @@ const Sidebar = (props) => {
                     </div>
                 </div>
                 <div className='sidebar__conversations'>
-
-                    <Conversation
-                        name='MIS'
-                        img='https://cdn.vox-cdn.com/thumbor/M2rjDALxvNDv3yqeYuIdL3spabo=/0x0:2000x1333/1200x675/filters:focal(840x507:1160x827)/cdn.vox-cdn.com/uploads/chorus_image/image/65939918/171109_08_11_37_5DS_0545__1_.0.jpg'
-                    />
-                    <Conversation
-                        name='Franco'
-                        img=''
-                    />
-                    <Conversation
-                        name='Flor'
-                        img=''
-                    />
+                    {
+                        usersInvolvedInConversation.map(userInvolvedInConversation => {
+                            return <Conversation
+                                name={userInvolvedInConversation[0].name}
+                                img={userInvolvedInConversation[0].imgSrc}
+                            />
+                        })
+                    }
                 </div>
             </div>
         )
