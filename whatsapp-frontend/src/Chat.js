@@ -10,6 +10,7 @@ import MessageIcon from '@material-ui/icons/Message';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const Chat = (props) => {
+    console.log(props)
     return (
         <div className='chat__container'>
             <div className='chat__header'>

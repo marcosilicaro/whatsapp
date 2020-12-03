@@ -9,7 +9,6 @@ const ObjectId = require('mongodb').ObjectID;
 const app = express()
 const port = process.env.PORT || 9000
 
-
 // conexion mongoose
 const connection_url = "mongodb+srv://whatsapp-user:zIcwQLiAPztigAxd@cluster0.obprb.mongodb.net/whatsappdb?retryWrites=true&w=majority";
 mongoose.connect(connection_url, {
@@ -17,7 +16,6 @@ mongoose.connect(connection_url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-
 
 // middleware
 app.use(express.json())
@@ -28,14 +26,11 @@ app.use((req, res, next) => {
     next()
 })
 
-
 // routes
-
 // GET prueba
 app.get('/', (req, res) => {
     res.status(200).json({ 'name': 'marco pija' })
 })
-
 
 // GET conversations by userIdsInvolved (para sidebar)
 app.get('/conversations/:userIdsInvolved', (req, res) => {
@@ -54,7 +49,6 @@ app.get('/users/:_id', (req, res) => {
         })
 })
 
-
 // GET messages by conversationId (para chat)
 app.get('/messages/:conversationId', (req, res) => {
     Messages.find({ "conversationId": req.params.conversationId },
@@ -63,7 +57,6 @@ app.get('/messages/:conversationId', (req, res) => {
             res.status(200).json(data)
         })
 })
-
 
 // POST conversation
 app.post('/conversations/new', (req, res) => {

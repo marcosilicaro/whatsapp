@@ -6,39 +6,11 @@ import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import MessageIcon from '@material-ui/icons/Message';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search';
-import axios from './axios'
 
 const Sidebar = (props) => {
 
-    const [conversationsWithUser, setconversationsWithUser] = useState([])
-    const [usersInvolvedInConversation, setusersInvolvedInConversation] = useState([])
 
-    useEffect(() => {
-
-        // importa conversaciones en la cual esta involucrado el main user
-        axios.get(`/conversations/${props.mainUser._id}`).then((response) => {
-            setconversationsWithUser(response.data)
-            //conversationsWithUser[0] ? console.log(conversationsWithUser) : console.log('loading conversations..')
-            conversationsWithUser[0] ? console.log('main user conversations imported!') : console.log('loading main user conversations..')
-        }
-        )
-
-        // importa a los usuarios con los que tiene una conversacion el main user
-        if (conversationsWithUser.length > 0) {
-            conversationsWithUser.map(conversation => {
-                conversation.userIdsInvolved.map(receivingUserId => {
-                    if (receivingUserId !== props.mainUser._id) {
-                        axios.get(`/users/${receivingUserId}`).then((response) => {
-                            setusersInvolvedInConversation(usersInvolvedInConversation => [...usersInvolvedInConversation, response.data])
-                        }
-                        )
-                    }
-                })
-            })
-        }
-    }, conversationsWithUser.length > 0 ? [] : null)
-
-    if (conversationsWithUser) {
+    if (props.conversationsWithUser) {
         return (
             <div className='sidebar__container'>
                 <div className='sidebar__header'>
@@ -61,11 +33,14 @@ const Sidebar = (props) => {
                 </div>
                 <div className='sidebar__conversations'>
                     {
-                        usersInvolvedInConversation.map(userInvolvedInConversation => {
-                            return <Conversation
-                                name={userInvolvedInConversation[0].name}
-                                img={userInvolvedInConversation[0].imgSrc}
-                            />
+                        props.usersInvolvedInConversation.map(userInvolvedInConversation => {
+                            if (userInvolvedInConversation[0]._id != props.mainUser._id) {
+                                return <Conversation
+                                    name={userInvolvedInConversation[0].name}
+                                    img={userInvolvedInConversation[0].imgSrc}
+                                />
+                            }
+
                         })
                     }
                 </div>
